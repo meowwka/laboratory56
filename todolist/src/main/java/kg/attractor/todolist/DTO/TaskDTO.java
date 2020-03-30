@@ -26,7 +26,7 @@ public class TaskDTO {
                 .title(task.getTitle())
                 .tasksType(task.getTasksType().toString())
                 .taskTime(task.getTaskTime().format(dtf))
-                .tasksUser(task.getTasksUser().getUserName())
+                .tasksUser(task.getTasksUser().getUsername())
                 .build();
     }
 

@@ -12,7 +12,7 @@ public class UserDTO {
     private String password;
 
     public static UserDTO from(User user){
-        return builder().userName(user.getUserName())
+        return builder().userName(user.getUsername())
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .build();
