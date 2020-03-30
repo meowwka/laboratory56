@@ -37,8 +37,9 @@ public class InitDataBase {
 //            List<Task> taskss =
 //            taskRepo.saveAll(taskss);
 
-            List<Task> tasks =  Stream.generate(Task::random).limit(10)
-                    .collect(toList());;
+            List<Task> tasks =  new ArrayList<>();
+//                    Stream.generate(Task::random).limit(10)
+//                    .collect(toList());;
 
             users.forEach(user -> tasks.add(Task.random(user)));
             taskRepo.saveAll(tasks);

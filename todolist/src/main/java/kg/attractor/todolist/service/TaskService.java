@@ -13,11 +13,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
+    private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+
     @Autowired
     private TaskRepo tr;
     @Autowired
@@ -45,6 +48,15 @@ public class TaskService {
 
     public Slice<TaskDTO> findById(String id,Pageable p ){
         return tr.findAllById(id,p).map(TaskDTO::from);
-
     }
+
+//    public TaskDTO addTask(TaskDTO taskDTO){
+//        var task = Task.builder().title(taskDTO.getTitle())
+//                .description(taskDTO.getDescription())
+//                .taskTime(taskDTO.getTaskTime())
+//                .build();
+//        tr.save(task);
+//        return TaskDTO.fromm(task);
+//
+//    }
 }
