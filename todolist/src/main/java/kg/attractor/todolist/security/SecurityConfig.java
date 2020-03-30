@@ -19,8 +19,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/**").permitAll();
-        http.authorizeRequests().antMatchers("/users/**").permitAll();
-        http.authorizeRequests().antMatchers("/tasks/**").fullyAuthenticated();
+        http.authorizeRequests().antMatchers("/users/*").permitAll();
+        http.authorizeRequests().antMatchers("/tasks/*").fullyAuthenticated();
 
         // permit other requests
         http.authorizeRequests().anyRequest().permitAll();

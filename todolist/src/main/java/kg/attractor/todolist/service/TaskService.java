@@ -35,9 +35,16 @@ public class TaskService {
     public List<Task> findAllByTasksUser(String s, Pageable p){
         return tr.findAllByTasksUserEmail(s,p).stream().filter(u -> u.getTasksUser().getEmail().equals(this.getUser().getEmail())).collect(Collectors.toList());
     }
+
+
     private User getUser() {
         // get current authenticated user
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return uRepo.findByEmail(auth.getName()).get();
+    }
+
+    public Slice<TaskDTO> findById(String id,Pageable p ){
+        return tr.findAllById(id,p).map(TaskDTO::from);
+
     }
 }

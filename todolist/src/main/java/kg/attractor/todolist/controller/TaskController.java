@@ -31,6 +31,12 @@ public class TaskController {
         return ts.findAllByTasksUser(email, pageable);
     }
 
+    @GetMapping("/task")
+    public Slice<TaskDTO> findById(@RequestParam("id") String id, @ApiIgnore Pageable pageable){
+        return  ts.findById(id,pageable);
+    }
+
+
 //    @PostMapping("/addTask")
 //    public Task addTask(@RequestParam("title") String title, @RequestParam("description") String description, @RequestParam("date") String date ){
 //        return  ts.setTask(title,description, LocalDateTime.parse(date, DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));

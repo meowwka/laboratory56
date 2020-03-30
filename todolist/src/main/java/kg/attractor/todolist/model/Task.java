@@ -52,4 +52,14 @@ public class Task {
                 .taskTime(LocalDateTime.now())
                 .build();
     }
+
+    public static Task random(){
+        return  builder()
+                .description(Generator.makeDescription())
+//                .tasksUser(user)
+                .title(Generator.makeTitle())
+                .tasksType(TaskType.values()[r.nextInt(3)])
+                .taskTime(LocalDateTime.now())
+                .build();
+    }
 }
