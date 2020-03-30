@@ -26,8 +26,8 @@ public class InitDataBase {
 
             List<User> users = new ArrayList<>();
             users.add(new User("Anna","anna@gmail.com","password"));
-            users.add(new User("Taazim","Taazim@gmail.com","taazim"));
-            users.add(new User("meow","Taazim@gmail.com","taazim"));
+            users.add(new User("Taazim","taazim@gmail.com","taazim"));
+            users.add(new User("meow","taazim@gmail.com","taazim"));
 
             userRepo.saveAll(users);
 

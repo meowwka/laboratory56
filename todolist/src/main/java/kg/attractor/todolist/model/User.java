@@ -26,7 +26,7 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
-    public User(String user, String email, String password){
+    public  User(String user, String email, String password){
         this.userName = user;
         this.email=email;
         this.password=password;

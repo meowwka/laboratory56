@@ -1,4 +1,4 @@
-package kg.attractor.todolist.util;
+package kg.attractor.todolist.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +18,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/dishes/*").permitAll();
-        http.authorizeRequests().antMatchers("/restaurants/*").permitAll();
-        http.authorizeRequests().antMatchers("/orders/*").fullyAuthenticated();
+        http.authorizeRequests().antMatchers("/**").permitAll();
+        http.authorizeRequests().antMatchers("/users/**").permitAll();
+        http.authorizeRequests().antMatchers("/tasks/**").fullyAuthenticated();
 
         // permit other requests
         http.authorizeRequests().anyRequest().permitAll();

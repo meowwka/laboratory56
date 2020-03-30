@@ -15,6 +15,7 @@ import java.time.format.DateTimeFormatter;
 public class TaskDTO {
     private static final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
 
+    private String id;
     private String title;
     private String description;
     private String taskTime;
@@ -22,11 +23,19 @@ public class TaskDTO {
     private String tasksType;
 
     public static TaskDTO from(Task task){
-        return builder().description(task.getDescription())
+        return builder().id(task.getId())
+                .description(task.getDescription())
                 .title(task.getTitle())
                 .tasksType(task.getTasksType().toString())
                 .taskTime(task.getTaskTime().format(dtf))
-                .tasksUser(task.getTasksUser().getUsername())
+                .tasksUser(task.getTasksUser().getEmail())
+                .build();
+    }
+
+    public static TaskDTO fromm(Task task){
+        return  builder().title(task.getTitle())
+                .description(task.getDescription())
+                .taskTime(task.getTaskTime().format(dtf))
                 .build();
     }
 
