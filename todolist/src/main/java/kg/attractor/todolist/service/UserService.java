@@ -35,6 +35,10 @@ public class UserService implements UserDetailsService {
         throw new UsernameNotFoundException("User does not exit");
     }
 
+    public Slice<User> getUserByEmail(String email , Pageable pageble){
+        return uRepo.findUserByEmail(email, pageble);
+    }
+
     public User setUsers(String name, String email, String password) {
         return uRepo.save(new User(name, email,password));
     }

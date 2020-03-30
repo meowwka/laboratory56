@@ -35,6 +35,11 @@ public class UserController {
         return us.setUsers(name, email,password);
     }
 
+    @GetMapping("/email")
+    public Slice<User> findUsersByEmail(@RequestParam("email") String email, @ApiIgnore Pageable pageable){
+        return us.getUserByEmail(email,pageable);
+    }
+
 
 
 
